@@ -1,8 +1,6 @@
 package com.bosonit.training.security.persona.infrastructure.controller;
 
 import com.bosonit.training.security.persona.entity.Persona;
-import com.bosonit.training.security.persona.infrastructure.dtos.PersonaINputDto;
-import com.bosonit.training.security.persona.infrastructure.dtos.PersonaOUTputDto;
 import com.bosonit.training.security.persona.service.ServicePersona;
 import com.bosonit.training.security.role.entity.Role;
 import lombok.Data;
@@ -16,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("api")
+//@RequestMapping("api")
 @RequiredArgsConstructor
 public class PersonaController {
 

@@ -41,13 +41,5 @@ public class PersonaINputDto {
         return person;
     }
 
-//    public PersonaINputDto(Integer id, String username, String password, String name, String personalEmail) {
-//        this.id = id;
-//        this.username = username;
-//        this.password = password;
-//        this.name = name;
-//        this.personalEmail = personalEmail;
-//
-//    }
 
 }

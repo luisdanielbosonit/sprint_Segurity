@@ -1,13 +1,15 @@
 package com.bosonit.training.security.security;
-import com.bosonit.training.security.SegurityApplication;
+
+
+import com.bosonit.training.security.filter.CustomAuthenticationFilter;
+import com.bosonit.training.security.filter.CustomAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -42,10 +44,9 @@ public class SecurityConfig {
         http.sessionManagement().sessionCreationPolicy(STATELESS);
         http.authorizeRequests().antMatchers("/login/**").permitAll();
         http.authorizeRequests().antMatchers(GET,"/api/**").hasAnyAuthority("USER","ADMIN");
-        http.authorizeRequests().antMatchers(GET,"/api/getall/**").hasAnyAuthority("USER","ADMIN");
-        http.authorizeRequests().antMatchers(POST,"/api/addPerson/**").hasAnyAuthority("ADMIN");
-        http.authorizeRequests().antMatchers(POST,"/api/addRole/**").hasAnyAuthority("ADMIN");
-
+        http.authorizeRequests().antMatchers(GET,"/getall/**").hasAnyAuthority("USER","ADMIN");
+        http.authorizeRequests().antMatchers(POST,"/addPerson/**").hasAnyAuthority("ADMIN");
+        http.authorizeRequests().antMatchers(POST,"/addRole/**").hasAnyAuthority("ADMIN");
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(customAuthenticationFilter);
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
@@ -57,9 +58,9 @@ public class SecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-//        public static void main(String[] args){
-//        System.out.println("pass "+new BCryptPasswordEncoder().encode("123456"));
-//    }
+        public static void main(String[] args){
+        System.out.println("pass "+new BCryptPasswordEncoder().encode("142536"));
+    }
 
 
 

@@ -48,16 +48,18 @@ public class SegurityApplication implements CommandLineRunner {
 
 
 
-		Role role = new Role(null,"USER");
+		Role role = new Role();
+		role.setNameRole("USER");
 		repositoryRole.save(role);
 		Persona persona=new Persona(null,"sadio", "sadio12", "$2a$10$kPhxcBrXlJVfFQo3j6EM5OXOizvlvkFmV62BAJX2.0Mvh4tbBwO/6",new ArrayList<>());
 		persona.getRoles().add(role);
 		personaDao.save(persona);
 
 
-		Role role1=new Role(null,"ADMIN");
+		Role role1=new Role();
+		role1.setNameRole("ADMIN");
 		repositoryRole.save(role1);
-		Persona persona1=new Persona(null, "cristiano", "cristo7", "142536",new ArrayList<>());
+		Persona persona1=new Persona(null, "cristiano", "cristo7", "$2a$10$OUivQ6xG4X3YNv1li28JsOy5zutnv6O1.6X67vGcuXOWV2KVt0sn2",new ArrayList<>());
 		persona.getRoles().add(role1);
 		personaDao.save(persona1);
 

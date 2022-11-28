@@ -31,23 +31,12 @@ public class Rolecontroller {
         return null;
     }
 
-//    @GetMapping("get/{id}")
-//    public RoleOUTputDto show(@PathVariable Integer id) throws Exception {
-//
-//        return serviceRole.viewId(id);
-//
-//    }
     @GetMapping("/view/{nameRole}")
     public List<RoleOUTputDto> getRoleByUsername(@PathVariable String nameRole) throws Exception {
         return serviceRole.viewRole(nameRole);
     }
 
 
-//    @PutMapping("/put/{id}")
-//    public RoleOUTputDto modificarRole(@PathVariable Integer id, @RequestBody RoleINputDto roleINputDto) throws Exception{
-//
-//        return serviceRole.update(id,roleINputDto);
-//    }
     @DeleteMapping("/delete/{id}")
     public void deleteRole(@PathVariable Integer id) throws Exception {
         serviceRole.delete(id);

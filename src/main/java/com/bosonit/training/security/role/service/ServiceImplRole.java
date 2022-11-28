@@ -27,11 +27,6 @@ public class ServiceImplRole implements ServiceRole {
     PersonaDao personaDao;
 
 
-//    @Override
-//    public RoleOUTputDto viewId(Integer id) {
-//        Role role= roleDao.findById(id).orElseThrow(()-> {throw new EntityNotFoundException("The person with username: "+id+" does not exist in the database", HttpStatus.FOUND,new Date());});
-//        return new RoleOUTputDto(role);
-//    }
 
     @Override
     public RoleOUTputDto loadRole(RoleINputDto roleINputDto){
@@ -43,24 +38,10 @@ public class ServiceImplRole implements ServiceRole {
     @Override
     public void addRolePersona(String name, String nameRole) {
         log.info("adding role {} to persona {}",nameRole,name);
-
-//        Persona persona= personaDao.findOneByname(name);
-//        if (persona== null)
-//            throw new EntityNotFoundException("The person with name: "+name+" does not exist in the database", HttpStatus.FOUND,new Date());
-
         Role roles= repositoryRole.findByNameRole(nameRole);
         if (roles==null)
             throw new EntityNotFoundException("The role with name: "+nameRole+" does not exist in the database", HttpStatus.FOUND,new Date());
 
-//        if(roles.isEmpty()){
-//            persona.
-//            personaDao.save(persona);
-//        }
-//        else if(persona.getRoles().contains(role)){
-//            throw new EntityNotFoundException("The role with name: "+nameRole+" does not exist in the database", HttpStatus.FOUND,new Date());
-//        }
-//        persona.getRoles().add(role);
-//        personaDao.save(persona);
 
     }
 
